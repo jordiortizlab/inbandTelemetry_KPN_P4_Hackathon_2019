@@ -1,0 +1,18 @@
+table_add MyIngress.telemetry_config MyIngress.count_packets  6&&&0xff 0&&&0 0&&&0 0&&&0 0&&&0 => 1 1
+table_add MyIngress.ipv4_lpm MyIngress.ipv4_forward  192.168.1.1/24 => 12:34:12:34:12:34 2
+
+--- Creation of multicast group for ports 2 and 3 (Not working by now) --- 
+
+RuntimeCmd: mc_mgrp_create 1
+Creating multicast group 1
+RuntimeCmd: mirroring_add
+mirroring_add     mirroring_add_mc  
+RuntimeCmd: mirroring_add 100 1
+RuntimeCmd: mc_node_create 1 2 3
+Creating node with rid 1 , port map 1100 and lag map 
+node was created with handle 0
+RuntimeCmd: mc_node_associate 1 1
+Associating node 1 to multicast group 1
+Invalid PRE operation (INVALID_L1_HANDLE)
+
+
